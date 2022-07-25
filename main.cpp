@@ -9,6 +9,7 @@ int main() {
     std::cout << "The number is: " << count(array, 5) << std::endl;
 
     // Different test cases
+    /* // commented out cause grade scope no likey
     std::cout << "========== Test Cases ==========" << std::endl;
 
     std::cout << "Test 1 - longer array" << std::endl;
@@ -37,6 +38,7 @@ int main() {
     int test_array_5[1];
     std::cout << "\tExpected number is: 0" << std::endl;
     std::cout << "\tThe number is:      " << count(test_array_5, 0) << std::endl;
+    */
 
     return 0;
 }
