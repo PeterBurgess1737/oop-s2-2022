@@ -26,6 +26,7 @@ int **customer_item_values; // Where the value of each customer item is stored
 int *customer_item_amounts; // Where the amount of items each customer has is stored
 int num_customers = 10;     // IDK
 // The following is so I can have psudo random numbers, I know there is a random function c++ has, but I didn't want to seed it so this instead
+// I understand this is very redundent and that I can use the rand() function, but ehh
 int random_numbers[] = {
     2, 4, 1, 8, 7, 9, 7, 6, 5, 8, 7, 3, 8, 4, 0, 9, 6, 8, 7, 2, 3, 6, 5, 1, 2, 7, 9, 0, 8, 4, 8, 7, 8, 7, 7, 6};
 const int num_random_numbers = 36;
