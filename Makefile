@@ -11,8 +11,8 @@
 1-12: main-1-12.cpp
 	g++ main-1-12.cpp -o main -Wall
 
-2-1: main-2-1.cpp
-	g++ main-2-1.cpp -o main -Wall
+2-1: main-2-1.cpp function-2-1.cpp
+	g++ main-2-1.cpp -o main -Wall function-2-1.cpp
 
-2-4: main-2-4.cpp
-	g++ main-2-4.cpp -o main -Wall
+2-4: main-2-4.cpp function-2-4.cpp
+	g++ main-2-4.cpp -o main -Wall function-2-4.cpp

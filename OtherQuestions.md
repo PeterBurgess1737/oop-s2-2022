@@ -129,3 +129,41 @@ int size_of_variable_star_arr();
 
 Referencing arr after deleting doesn't appear to do anything, and the value in arr hasn't changed.  
 The memory however can be written over by another program.  
+
+# Function Pointers
+Because pointers are variables that point to memory locations AND your program is just a series of jumps to and from various memory locations, pointers can be used to point to anything, including addresses of functions.
+A pointer to an address of a function is called, you got it, a function pointer.
+Because pointers are just variables, in a similar manner, function pointers are also just variables:
+    This means that they can be passed as parameters and returned from other function calls.
+
+Function pointers are extremely useful constructs in cases when you do not know, at the time you are writing the program, which function will be called.
+This can be the case, for example, when you are depending on the input from the user to determine which function to call.
+This workshop will cover function pointers briefly.
+
+## 2.1
+### Write a function, without using function pointers, that performs the operations "+" and "-" on two float operators.
+### All three (the two operators and the operation) are received as input from the user by your main function.
+### The add and subtract operations must be performed by calling their own functions.
+### In your teams, discuss the design of your program and then write it down, compile and run it.
+#### The function signatures are:
+```cpp
+float add_op(float left, float right);
+float subtract_op(float left, float right);
+float arithmetic_ops(float left, float right, std::string op);
+```
+
+## 2.2
+### How would your program look if you had to add other operations such as "/", "*", "modulo" etc.?
+It would become longer with more if else if statements.  
+
+## 2.3
+### Have a look at the attached file function-2-3.cpp below and identify the function pointer in the code.
+`op` is the function pointer.
+
+## 2.4
+### Copy the contents of function-2-3.cpp and also add a new function that performs the operation "*".
+#### This new function's signature is:
+```cpp
+float multiply_op(float left, float right);
+```
+#### Implement a main function that exercises this code.
