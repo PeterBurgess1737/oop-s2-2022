@@ -18,10 +18,7 @@ The function signature is:
 int *arr = new int[3];
 
 // Functions
-int size_of_variable_star_arr()
-{
-    return sizeof(arr);
-}
+extern int size_of_variable_star_arr();
 
 // MAIN
 int main(void)

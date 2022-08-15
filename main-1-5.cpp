@@ -16,10 +16,7 @@ The function signature is:
 int *arr = new int[3];
 
 // Functions
-int size_of_array_arr()
-{
-    return sizeof(*arr) * 3;
-}
+extern int size_of_array_arr();
 
 // MAIN
 int main(void)

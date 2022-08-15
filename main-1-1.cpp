@@ -26,10 +26,7 @@ The function signature is:
 int *t = new int;
 
 // Functions
-int size_of_variable_star_t()
-{
-    return sizeof(t);
-}
+extern int size_of_variable_star_t();
 
 // MAIN
 int main(void)
