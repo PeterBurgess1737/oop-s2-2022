@@ -29,9 +29,10 @@ extern int max_sub_sum(int *nums, int length);
 int main(void)
 {
     // Test 1 - example test
+    std::cout << "\nExample test" << std::endl;
     int my_nums_1[] = {31, -41, 59, 26, -53, 58, 97, -93, -23, 84};
     expected_value = 187;
-    std::cout << "\nExpected Value:\t" << expected_value << std::endl;
+    std::cout << "Expected Value:\t" << expected_value << std::endl;
     received_value = max_sub_sum(my_nums_1, 10);
     std::cout << "Received Value:\t" << received_value << std::endl;
     if (expected_value == received_value)
@@ -44,10 +45,59 @@ int main(void)
     }
 
     // Test 2 - a simple custom test by mwa
+    std::cout << "\nSimple custom test by mwa" << std::endl;
     int my_nums_2[] = {1, 2, -3, 4, -5, 6, 7, -8, 9, -10};
     expected_value = 14;
-    std::cout << "\nExpected Value:\t" << expected_value << std::endl;
+    std::cout << "Expected Value:\t" << expected_value << std::endl;
     received_value = max_sub_sum(my_nums_2, 10);
+    std::cout << "Received Value:\t" << received_value << std::endl;
+    if (expected_value == received_value)
+    {
+        std::cout << "----- Passed -----" << std::endl;
+    }
+    else
+    {
+        std::cout << "----- Failed -----" << std::endl;
+    }
+
+    // Test 3 - Array of length 1
+    std::cout << "\nArray of length 1" << std::endl;
+    int my_nums_3[] = {17};
+    expected_value = 17;
+    std::cout << "Expected Value:\t" << expected_value << std::endl;
+    received_value = max_sub_sum(my_nums_3, 1);
+    std::cout << "Received Value:\t" << received_value << std::endl;
+    if (expected_value == received_value)
+    {
+        std::cout << "----- Passed -----" << std::endl;
+    }
+    else
+    {
+        std::cout << "----- Failed -----" << std::endl;
+    }
+
+    // Test 4 - All negative except first value
+    std::cout << "\nAll negative except first value" << std::endl;
+    int my_nums_4[] = {7, -17};
+    expected_value = 7;
+    std::cout << "Expected Value:\t" << expected_value << std::endl;
+    received_value = max_sub_sum(my_nums_4, 2);
+    std::cout << "Received Value:\t" << received_value << std::endl;
+    if (expected_value == received_value)
+    {
+        std::cout << "----- Passed -----" << std::endl;
+    }
+    else
+    {
+        std::cout << "----- Failed -----" << std::endl;
+    }
+
+    // Test 5 - All negative except last value
+    std::cout << "\nAll negative except last value" << std::endl;
+    int my_nums_5[] = {-18, 17};
+    expected_value = 17;
+    std::cout << "Expected Value:\t" << expected_value << std::endl;
+    received_value = max_sub_sum(my_nums_5, 2);
     std::cout << "Received Value:\t" << received_value << std::endl;
     if (expected_value == received_value)
     {

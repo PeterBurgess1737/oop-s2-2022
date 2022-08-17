@@ -1,3 +1,5 @@
+#include <iostream>
+
 int max_sub_sum(int *nums, int length)
 {
     // Length check
@@ -28,8 +30,11 @@ int max_sub_sum(int *nums, int length)
     // For every starting index possible
     for (int starting_index = 0; starting_index < length; starting_index++)
     {
+        // std::cout << "FUCNCTION: " << "starting index = " << starting_index << std::endl;
+        // std::cout << "FUCNCTION: " << "length - starting_index = " << length - starting_index << std::endl;
+        
         // For every sub array length possible for the starting index
-        for (int sub_array_length = 1; sub_array_length < length - starting_index; sub_array_length++)
+        for (int sub_array_length = 1; sub_array_length <= length - starting_index; sub_array_length++)
         {
             // Reset the current sum
             current_sum = 0;
@@ -39,6 +44,8 @@ int max_sub_sum(int *nums, int length)
             {
                 current_sum += nums[starting_index + index_offset];
             }
+
+            // std::cout << "FUCNCTION: \t" << "current sum = " << current_sum << std::endl;
 
             // Check against the last largest
             if (current_sum > max_sum)
