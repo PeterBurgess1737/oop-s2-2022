@@ -54,7 +54,7 @@ int secondSmallestSum(int *numbers, int length)
     }
 
     // Finding the second smallest sum, but better now
-    if (all_sums[0] < all_sums[1])
+    if (all_sums[0] <= all_sums[1])
     {
         smallest_sum = all_sums[0];
         second_smallest_sum = all_sums[1];
@@ -64,7 +64,7 @@ int secondSmallestSum(int *numbers, int length)
         smallest_sum = all_sums[1];
         second_smallest_sum = all_sums[0];
     }
-    for (int i = 2; i < num_sub_arrays; i++)
+    for (int i = 0; i < num_sub_arrays; i++)
     {
         if (all_sums[i] <= smallest_sum)
         {
