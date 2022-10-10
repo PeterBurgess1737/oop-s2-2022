@@ -9,9 +9,6 @@ using std::stack;
 
 #define max_usb_ports 10
 
-// Creating the stack of avaliable ids
-stack<int> USBConnection::available_ids({3, 2, 1});
-
 int main()
 {
     // Array of usb connections
