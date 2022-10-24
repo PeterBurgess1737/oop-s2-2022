@@ -1,55 +1,56 @@
 /*
-Question 1 - Array Allocation and Display
+Design a class called Asset.
+Assets need to store state about the type of the financial asset and the value of the asset.
 
-File names:
-    function-1-1.cpp (for functions) and main-1-1.cpp (for main)
+Asset must provide the following public behaviours (methods):
 
-Function signatures:
-    int *create_integers(int num_vals, int start);
-    void array_display(int *vals, int num_vals);
+    // a default constructor
+    Asset();
 
-The functions are:
-    create_integers:
-        Takes in two numbers:
-            num_vals and start
-        Allocates a new array of ints that is num_vals long.
-        This function should initialise each element starting with the value in start, increasing by one each time.
-        Hence a call:
-            a = create_integers(5, 2)
-        Should store the values [2, 3, 4, 5, 6] in the array a.
+    // a constructor that takes the product type  and value
+    Asset(int value, std::string product_type);
 
-    array_display:
-        Should display the contents of the array on a single line, separated by spaces with a newline afterwards.
-        You are allowed to have a space between the last element and the newline.
+    // returns the financial asset type
+    std::string get_product_type();
+    // returns the the value of asset
+    int get_value();
+    // A default destructor
+    ~Asset();
 
-You should also, in a separate file, write a main function that does the following
-    Call your create_integers function,
-    Pass the new array to your array_display function and call it.
+You may add any other methods and any state variables you want, but the methods listed above must be available and public.
+The default constructor should set the type of asset to the empty string "" and  the value of the asset to zero.
 
-The two functions defined above must be placed in the file function-1-1.cpp and the main function in the file main-1-1.cpp.
+Write Asset.h and Asset.cpp files to declare and implement the Asset class.
+
+Write a main-1-1.cpp file that tests all of your methods (behaviours) function correctly.
+
+Please submit all 3 files.
 */
 
 // Libraries
 #include <iostream>
+using std::cout;
+using std::endl;
 
-// Variables
-int *arr;
+#include "Asset.h"
 
-// External Functions
-extern int *create_integers(int num_vals, int start);
-extern void array_display(int *vals, int num_vals);
-
-// MAIN
+// MAIN!
 int main(void)
 {
-    /*
-    Call your create_integers function,
-    Pass the new array to your array_display function and call it.
-    */
+    cout << "\nAsset with default constructor" << endl;
+    Asset asset_1 = Asset();
+    cout << "Running getters" << endl;
+    cout << "\tProduct type '" << asset_1.get_product_type() << "'" << endl;
+    cout << "\tProduct value '" << asset_1.get_value() << "'" << endl;
 
-    arr = create_integers(5, 2); // Example case
+    cout << "\nAsset with constuctor parameters" << endl;
+    cout << "\tvalue = 10\n\tproduct_type='apples'" << endl;
+    Asset asset_2 = Asset(10, "apples");
+    cout << "Running getters" << endl;
+    cout << "\tProduct type '" << asset_2.get_product_type() << "'" << endl;
+    cout << "\tProduct value '" << asset_2.get_value() << "'" << endl;
 
-    array_display(arr, 5);
+    cout << "\nFinished" << endl;
 
     return 0;
 }
