@@ -1,20 +1,33 @@
-int min_element(int array[], int n)
+#include <iostream>
+using std::string;
+
+string month_lookup(int month)
 {
-    // find the minimum number in an array and return it
-    // return 0 if the size parameter, n, is less than 1
-    if (n < 0)
+    /*
+    Takes an integer between 1-12 (inclusive) representing the month and returns a string with the name of that month.
+    The function should return the string "invalid month" if the integer parameter is not in the range 1-12 inclusive.
+    The returned string should contain no leading or trailing spaces or newline characters.
+    */
+
+    if (month < 1 || month > 12)
     {
-        return 0;
+        return "invalid month";
     }
 
-    int min = array[0];
-    for (int i = 1; i < n; i++)
-    {
-        if (array[i] < min)
-        {
-            min = array[i];
-        }
-    }
+    string month_array[12] = {
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    };
 
-    return min;
+    return month_array[month - 1];
 }

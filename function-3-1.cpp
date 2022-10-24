@@ -1,24 +1,25 @@
-bool is_fanarray(int array[], int n)
+#include <iostream>
+
+void dangerous_temps(double vals[], double threshold, int length)
 {
-    // determine if the array is a 'fan' array
-    //  entire array is a palindrome with the numbers in ascending order from the start to the middle element
-    // return false if the size parameter, n, is less than 1
-    if (n < 1)
-    {
-        return false;
-    }
+    /*
+    Which takes:
+        An array of doubles representing temperatures in an biological process
+        A double value representing a threshold temperature.
+            Temperatures lower than this value are dangerous as the samples may die.
+        An integer representing the length of the array of temperatures.
 
-    for (int i = 0; i < n / 2; i++)
+    The function must print a space-separated list of pairs consisting of:
+        The array index of a dangerous temperature, followed by a colon, followed by the dangerous temperature.
+    The list can be terminated by a space (if it is convenient to write your code this way) and a newline character.
+    */
+
+    for (int i = 0; i < length; i++)
     {
-        if (array[i] > array[i + 1])
+        if (vals[i] < threshold)
         {
-            return false;
-        }
-        if (array[i] != array[n - i - 1])
-        {
-            return false;
+            std::cout << i << ":" << vals[i] << " ";
         }
     }
-
-    return true;
+    std::cout << std::endl;
 }

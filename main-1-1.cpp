@@ -1,45 +1,55 @@
 /*
-Write a function that returns the sum of all elements in an int array.
-The parameters of the function are the array and the number of elements in the array.
-The function should return 0 if the size parameter, n, is less than 1.
+Question 1 - Array Allocation and Display
+
+File names:
+    function-1-1.cpp (for functions) and main-1-1.cpp (for main)
+
+Function signatures:
+    int *create_integers(int num_vals, int start);
+    void array_display(int *vals, int num_vals);
+
+The functions are:
+    create_integers:
+        Takes in two numbers:
+            num_vals and start
+        Allocates a new array of ints that is num_vals long.
+        This function should initialise each element starting with the value in start, increasing by one each time.
+        Hence a call:
+            a = create_integers(5, 2)
+        Should store the values [2, 3, 4, 5, 6] in the array a.
+
+    array_display:
+        Should display the contents of the array on a single line, separated by spaces with a newline afterwards.
+        You are allowed to have a space between the last element and the newline.
+
+You should also, in a separate file, write a main function that does the following
+    Call your create_integers function,
+    Pass the new array to your array_display function and call it.
+
+The two functions defined above must be placed in the file function-1-1.cpp and the main function in the file main-1-1.cpp.
 */
 
-// Including standard headers
-#include <stdio.h>
-#include <stdlib.h>
+// Libraries
 #include <iostream>
 
-// External functions
-extern int array_sum(int[], int);
+// Variables
+int *arr;
 
+// External Functions
+extern int *create_integers(int num_vals, int start);
+extern void array_display(int *vals, int num_vals);
+
+// MAIN
 int main(void)
 {
-    std::cout << "========== Testing ==========" << std::endl;
+    /*
+    Call your create_integers function,
+    Pass the new array to your array_display function and call it.
+    */
 
-    std::cout << "Test 1 - simple array" << std::endl;
-    int array_1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    std::cout << "\tExpected: 55" << std::endl;
-    std::cout << "\tReceived: " << array_sum(array_1, 10) << std::endl;
+    arr = create_integers(5, 2); // Example case
 
-    std::cout << "Test 2 - array with negative numbers" << std::endl;
-    int array_2[] = {-10, -9, -8, -7, -6, -5, -4, -3, -2, -1};
-    std::cout << "\tExpected: -55" << std::endl;
-    std::cout << "\tReceived: " << array_sum(array_2, 10) << std::endl;
-
-    std::cout << "Test 3 - array with positive and negative numbers" << std::endl;
-    int array_3[] = {-5, -4, -3, -2, -1, 0, 1, 2, 3, 4};
-    std::cout << "\tExpected: -5" << std::endl;
-    std::cout << "\tReceived: " << array_sum(array_3, 10) << std::endl;
-
-    std::cout << "Test 4 - negative size parameter" << std::endl;
-    int array_4[] = {17, 37};
-    std::cout << "\tExpected: 0" << std::endl;
-    std::cout << "\tReceived: " << array_sum(array_4, -17) << std::endl;
-
-    std::cout << "Test 5 - array of zeroes" << std::endl;
-    int array_5[] = {0, 0, 0, 0, 0};
-    std::cout << "\tExpected: 0" << std::endl;
-    std::cout << "\tReceived: " << array_sum(array_5, 5) << std::endl;
+    array_display(arr, 5);
 
     return 0;
 }

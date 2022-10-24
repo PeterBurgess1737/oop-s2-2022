@@ -1,42 +1,48 @@
 /*
-Write a function that given an array of integers and its length, will find the minimum (smallest) number and return it.
-The function should return 0 if the size parameter, n, is less than 1.
+Question 2 - Array Lookup
+
+File names:
+    function-2-1.cpp (for functions) and main-2-1.cpp (for main)
+
+Function signatures: 
+    string month_lookup(int month);
+
+The function is:
+    month_lookup
+        Takes an integer between 1-12 (inclusive) representing the month and returns a string with the name of that month.
+        The function should return the string "invalid month" if the integer parameter is not in the range 1-12 inclusive.
+        The returned string should contain no leading or trailing spaces or newline characters. 
+
+Thus a call:
+    cout << month_lookup(3) << endl;
+
+Should print: 
+    March
+
+Note that we are using the Australian calendar for this function.
+Note also an easy way to implement this function is look up an array for the correct values
+    - however in this exercise you are allowed to implement this function by other means if you wish. 
+
+You must also create, in a separate file, a main function that does the following:
+    Repeatedly calls the month_lookup function so tests it for both valid and invalid month numbers and prints the result.
+
+The two functions defined above must be placed in the file function-2-1.cpp and the main function in the file main-2-1.cpp.
 */
 
-// Including standard headers
-#include <stdio.h>
-#include <stdlib.h>
+// Libraries
 #include <iostream>
+using std::string;
 
-// External functions
-extern int min_element(int[], int);
+// External Functions
+extern string month_lookup(int month);
 
+// MAIN
 int main(void)
 {
-    std::cout << "Test 1 - simple array" << std::endl;
-    int array_1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    std::cout << "Expected: 1" << std::endl;
-    std::cout << "Received: " << min_element(array_1, 10) << std::endl;
-    
-    std::cout << "Test 2 - negative numbers" << std::endl;
-    int array_2[] = {-1, -2, -3, -4, -5, -6, -7, -8, -9, -10};
-    std::cout << "Expected: -10" << std::endl;
-    std::cout << "Received: " << min_element(array_2, 10) << std::endl;
-    
-    std::cout << "Test 3 - positive and negative numbers" << std::endl;
-    int array_3[] = {1, -5, 3, -2, 5, -7, 7, -2, 9, 10};
-    std::cout << "Expected: -7" << std::endl;
-    std::cout << "Received: " << min_element(array_3, 10) << std::endl;
-    
-    std::cout << "Test 4 - negative size parameter" << std::endl;
-    int array_4[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    std::cout << "Expected: 0" << std::endl;
-    std::cout << "Received: " << min_element(array_4, -17) << std::endl;
-    
-    std::cout << "Test 5 - all zeros" << std::endl;
-    int array_5[] = {0, 0, 0, 0, 0};
-    std::cout << "Expected: 0" << std::endl;
-    std::cout << "Received: " << min_element(array_5, 5) << std::endl;
+    for (int i = 0; i <= 13; i++)
+    {
+        std::cout << "Using int: " << i << " gives " << "'" << month_lookup(i) << "'" << std::endl;
+    }
 
     return 0;
 }

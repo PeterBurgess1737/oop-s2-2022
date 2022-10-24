@@ -1,49 +1,55 @@
 /*
-Write a function that given an array of integers, and its length, determine if the array is a 'fan' array
-    i.e. the entire array is a palindrome with the numbers in ascending order from the start to the middle element.
-        e.g. {1,2,3,2,1} and {2,4,4,2} are both fan arrays but, {1,2,1,2,1} and {1,3,5,4,2} are not.
-The function must return false if the size parameter, n, is less than 1.
+Question 3 - Conditional Array Processing
+
+File names:
+    function-3-1.cpp (for functions) and main-3-1.cpp (for main)
+
+Function signatures: 
+    void dangerous_temps(double vals[],double threshold, int length);
+
+    The function is:
+        dangerous_temps:
+            Which takes:
+                An array of doubles representing temperatures in an biological process
+                A double value representing a threshold temperature.
+                    Temperatures lower than this value are dangerous as the samples may die.
+                An integer representing the length of the array of temperatures.
+
+            The function must print a space-separated list of pairs consisting of:
+                The array index of a dangerous temperature, followed by a colon, followed by the dangerous temperature.
+            The list can be terminated by a space (if it is convenient to write your code this way) and a newline character. 
+
+Thus if the array vals contains the values: {-10.0, -70.5, -75.5, -20.0, -30.2, -40.6, -91.8} then the call
+    dangerous_temps(vals,-72.0,7);
+
+Should print: 
+    2:-75.5 6:-91.8 
+
+You must also create, in a separate file, a main function that does the following:
+    Calls the dangerous_temps function twice on two different arrays with two different threshold values. 
+
+The two functions defined above must be placed in the file function-3-1.cpp and the main function in the file main-3-1.cpp.
 */
 
-// Including standard headers
-#include <stdio.h>
-#include <stdlib.h>
+// Libraries
 #include <iostream>
 
-// External functions
-extern bool is_fanarray(int[], int);
+// Variables
+double arr_1[7] = {-10.0, -70.5, -75.5, -20.0, -30.2, -40.6, -91.8};
+double arr_1_threshold = -72.0;
 
+double arr_2[8] = {-17.1, -55.0, -22.0, -77.7, -33.2, -19.9, -17.37, -16.0};
+double arr_2_threshold = -50.0;
+
+// External Functions
+extern void dangerous_temps(double vals[],double threshold, int length);
+
+// MAIN
 int main(void)
 {
-    std::cout << "Test 1 - fan array" << std::endl;
-    int array_1[] = {1, 2, 3, 4, 5, 5, 4, 3, 2, 1};
-    std::cout << "Expected: 1" << std::endl;
-    std::cout << "Received: " << is_fanarray(array_1, 10) << std::endl;
-    
-    std::cout << "Test 2 - fan array with negative numbers" << std::endl;
-    int array_2[] = {-5, -4, -3, -2, -1, -1, -2, -3, -4, -5};
-    std::cout << "Expected: 1" << std::endl;
-    std::cout << "Received: " << is_fanarray(array_2, 10) << std::endl;
-    
-    std::cout << "Test 3 - fan array with positive and negative numbers" << std::endl;
-    int array_3[] = {-7, -3, 0, 2, 5, 5, 2, 0, -3, -7};
-    std::cout << "Expected: 1" << std::endl;
-    std::cout << "Received: " << is_fanarray(array_3, 10) << std::endl;
-    
-    std::cout << "Test 4 - negative size parameter" << std::endl;
-    int array_4[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    std::cout << "Expected: 0" << std::endl;
-    std::cout << "Received: " << is_fanarray(array_4, -17) << std::endl;
-    
-    std::cout << "Test 5 - all zeros" << std::endl;
-    int array_5[] = {0, 0, 0, 0, 0};
-    std::cout << "Expected: 1" << std::endl;
-    std::cout << "Received: " << is_fanarray(array_5, 5) << std::endl;
-    
-    std::cout << "Test 6 - jumbled mess" << std::endl;
-    int array_6[] = {1, 7, 9, 2, 5, -1, 2, 4, 76, -2, 1, -122};
-    std::cout << "Expected: 0" << std::endl;
-    std::cout << "Received: " << is_fanarray(array_6, 12) << std::endl;
-    
+    dangerous_temps(arr_1, arr_1_threshold, 7);
+
+    dangerous_temps(arr_2, arr_2_threshold, 8);
+
     return 0;
 }
