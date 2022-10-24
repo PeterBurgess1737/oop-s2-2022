@@ -1,33 +1,26 @@
 #include <iostream>
-using std::string;
+#include <string>
+#include <algorithm>
 
-string month_lookup(int month)
+void print_binary_str(std::string decimal_number)
 {
-    /*
-    Takes an integer between 1-12 (inclusive) representing the month and returns a string with the name of that month.
-    The function should return the string "invalid month" if the integer parameter is not in the range 1-12 inclusive.
-    The returned string should contain no leading or trailing spaces or newline characters.
-    */
-
-    if (month < 1 || month > 12)
+    // transforms a positive decimal number into binary and prints out the result
+    int decimal_number_int = atoi(decimal_number.c_str());
+    std::string binary_number("");
+    while (decimal_number_int > 0)
     {
-        return "invalid month";
+        if (decimal_number_int % 2)
+        {
+            binary_number.push_back('1');
+        }
+        else
+        {
+            binary_number.push_back('0');
+        }
+        decimal_number_int /= 2;
     }
 
-    string month_array[12] = {
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-    };
-
-    return month_array[month - 1];
+    std::reverse(binary_number.begin(), binary_number.end());
+    
+    std::cout << binary_number << std::endl;
 }
