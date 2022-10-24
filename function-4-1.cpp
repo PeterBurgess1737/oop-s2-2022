@@ -26,6 +26,7 @@ int secondSmallestSum(int *numbers, int length)
     int current_sum = 0;
 
     int smallest_sum;
+    int smallest_sum_index;
     int second_smallest_sum;
 
     int num_sub_arrays = length * (length + 1) / 2;
@@ -53,21 +54,32 @@ int secondSmallestSum(int *numbers, int length)
         }
     }
 
-    // Finding the second smallest sum, but better now
-    // Stuck with case of smallest being the first number
-    int temp_index = 0;
-    if (all_sums[temp_index] < all_sums[temp_index + 1])
+    // Find the smallest sub array
+    smallest_sum_index = 0;
+    smallest_sum = all_sums[smallest_sum_index];
+    for (int i = 1; i < num_sub_arrays; i++)
     {
-        temp_index += 1;
+        if (all_sums[i] < smallest_sum)
+        {
+            smallest_sum = all_sums[i];
+            smallest_sum_index = i;
+        }
     }
-    smallest_sum = all_sums[temp_index];
-    second_smallest_sum = all_sums[temp_index];
+
+    // Find the second smallest sub array
+    second_smallest_sum = all_sums[(smallest_sum_index + 1) % num_sub_arrays]; // Making the index different to the smallest sum
     for (int i = 0; i < num_sub_arrays; i++)
     {
-        if (all_sums[i] <= smallest_sum)
+        if (i != smallest_sum_index)
         {
-            second_smallest_sum = smallest_sum;
-            smallest_sum = all_sums[i];
+            if (all_sums[i] == smallest_sum)
+            {
+                return all_sums[i];
+            }
+            else if (all_sums[i] < second_smallest_sum)
+            {
+                second_smallest_sum = all_sums[i];
+            }
         }
     }
 
