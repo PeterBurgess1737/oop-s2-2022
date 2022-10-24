@@ -1,112 +1,42 @@
 /*
-Write a function that given an array of integers, determines the maximum sum of any possible contiguous sub-array.
-If all the numbers are negative the result is 0.
-If the length of the array is less than one your function should return 0.
-
-Signature:
-    int max_sub_sum(int *nums,int length);
-
-For example, for the array:
-    { 31, -41, 59, 26, -53, 58, 97, -93, -23, 84 }
-
-The sub-array with the largest sum is:
-    { 59, 26, -53, 58, 97 }
-
-The result would be:
-    187
+Write a function that returns the maximum element in an integer array.
+The function should return 0 if the size parameter, n, is less than 1.
 */
 
-// Libraries
+// Including standard headers
+#include <stdio.h>
+#include <stdlib.h>
 #include <iostream>
 
-// Variables
-int expected_value, received_value;
-
 // External functions
-extern int max_sub_sum(int *nums, int length);
+extern int max_element(int[], int);
 
-// MAIN
 int main(void)
 {
-    // Test 1 - example test
-    std::cout << "\nExample test" << std::endl;
-    int my_nums_1[] = {31, -41, 59, 26, -53, 58, 97, -93, -23, 84};
-    expected_value = 187;
-    std::cout << "Expected Value:\t" << expected_value << std::endl;
-    received_value = max_sub_sum(my_nums_1, 10);
-    std::cout << "Received Value:\t" << received_value << std::endl;
-    if (expected_value == received_value)
-    {
-        std::cout << "----- Passed -----" << std::endl;
-    }
-    else
-    {
-        std::cout << "----- Failed -----" << std::endl;
-    }
-
-    // Test 2 - a simple custom test by mwa
-    std::cout << "\nSimple custom test by mwa" << std::endl;
-    int my_nums_2[] = {1, 2, -3, 4, -5, 6, 7, -8, 9, -10};
-    expected_value = 14;
-    std::cout << "Expected Value:\t" << expected_value << std::endl;
-    received_value = max_sub_sum(my_nums_2, 10);
-    std::cout << "Received Value:\t" << received_value << std::endl;
-    if (expected_value == received_value)
-    {
-        std::cout << "----- Passed -----" << std::endl;
-    }
-    else
-    {
-        std::cout << "----- Failed -----" << std::endl;
-    }
-
-    // Test 3 - Array of length 1
-    std::cout << "\nArray of length 1" << std::endl;
-    int my_nums_3[] = {17};
-    expected_value = 17;
-    std::cout << "Expected Value:\t" << expected_value << std::endl;
-    received_value = max_sub_sum(my_nums_3, 1);
-    std::cout << "Received Value:\t" << received_value << std::endl;
-    if (expected_value == received_value)
-    {
-        std::cout << "----- Passed -----" << std::endl;
-    }
-    else
-    {
-        std::cout << "----- Failed -----" << std::endl;
-    }
-
-    // Test 4 - All negative except first value
-    std::cout << "\nAll negative except first value" << std::endl;
-    int my_nums_4[] = {7, -17};
-    expected_value = 7;
-    std::cout << "Expected Value:\t" << expected_value << std::endl;
-    received_value = max_sub_sum(my_nums_4, 2);
-    std::cout << "Received Value:\t" << received_value << std::endl;
-    if (expected_value == received_value)
-    {
-        std::cout << "----- Passed -----" << std::endl;
-    }
-    else
-    {
-        std::cout << "----- Failed -----" << std::endl;
-    }
-
-    // Test 5 - All negative except last value
-    std::cout << "\nAll negative except last value" << std::endl;
-    int my_nums_5[] = {-18, 17};
-    expected_value = 17;
-    std::cout << "Expected Value:\t" << expected_value << std::endl;
-    received_value = max_sub_sum(my_nums_5, 2);
-    std::cout << "Received Value:\t" << received_value << std::endl;
-    if (expected_value == received_value)
-    {
-        std::cout << "----- Passed -----" << std::endl;
-    }
-    else
-    {
-        std::cout << "----- Failed -----" << std::endl;
-    }
+    std::cout << "Test 1 - simple array" << std::endl;
+    int array_1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    std::cout << "Expected: 10" << std::endl;
+    std::cout << "Received: " << max_element(array_1, 10) << std::endl;
+    
+    std::cout << "Test 2 - negative numbers" << std::endl;
+    int array_2[] = {-1, -2, -3, -4, -5, -6, -7, -8, -9, -10};
+    std::cout << "Expected: -1" << std::endl;
+    std::cout << "Received: " << max_element(array_2, 10) << std::endl;
+    
+    std::cout << "Test 3 - positive and negative numbers" << std::endl;
+    int array_3[] = {1, -5, 3, -2, 5, -7, 7, -2, 9, 10};
+    std::cout << "Expected: 10" << std::endl;
+    std::cout << "Received: " << max_element(array_3, 10) << std::endl;
+    
+    std::cout << "Test 4 - negative size parameter" << std::endl;
+    int array_4[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    std::cout << "Expected: 0" << std::endl;
+    std::cout << "Received: " << max_element(array_4, -17) << std::endl;
+    
+    std::cout << "Test 5 - all zeros" << std::endl;
+    int array_5[] = {0, 0, 0, 0, 0};
+    std::cout << "Expected: 0" << std::endl;
+    std::cout << "Received: " << max_element(array_5, 5) << std::endl;
 
     return 0;
 }

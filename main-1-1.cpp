@@ -1,66 +1,45 @@
 /*
-In your main function in main-1-1.cpp, define and initialize a two-dimensional string array of size 3 by 2.
-Define (but do not initialize) another two-dimensional array of strings of the same size as the first one.
-Write a function that copies the values of the first array into the second, without using pointers.
-The function must take a third parameter that gives the size of the first dimension which in this case is 3.
-
-Signature:
-    void string_2d_copy(std::string first[][2], std::string second[][2], int n);
-
-Note:
-    You must access the arrays using [][] notation.
+Write a function that returns the sum of all elements in an int array.
+The parameters of the function are the array and the number of elements in the array.
+The function should return 0 if the size parameter, n, is less than 1.
 */
 
-// Libraries
+// Including standard headers
+#include <stdio.h>
+#include <stdlib.h>
 #include <iostream>
-#include <string>
-
-// Variables
-std::string first[3][2];
-std::string second[3][2];
 
 // External functions
-extern void string_2d_copy(std::string first[][2], std::string second[][2], int n);
+extern int array_sum(int[], int);
 
-// MAIN
 int main(void)
 {
-    // Populating first
-    first[0][0] = "Top left";
-    first[0][1] = "Top right";
-    first[1][0] = "Middle left";
-    first[1][1] = "Middle right";
-    first[2][0] = "Bottom left";
-    first[2][1] = "Bottom right";
+    std::cout << "========== Testing ==========" << std::endl;
 
-    // Displaying
-    std::cout << "First array: " << std::endl;
-    for (int i = 0; i < 3; i++)
-    {
-        std::cout << "\t" << "'" << first[i][0] << "'" << ", " << "'" << first[i][1] << "'" << std::endl;
-    }
-    std::cout << "Second array: " << std::endl;
-    for (int i = 0; i < 3; i++)
-    {
-        std::cout << "\t" << "'" << second[i][0] << "'" << ", " << "'" << second[i][1] << "'" << std::endl;
-    }
+    std::cout << "Test 1 - simple array" << std::endl;
+    int array_1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    std::cout << "\tExpected: 55" << std::endl;
+    std::cout << "\tReceived: " << array_sum(array_1, 10) << std::endl;
 
-    // Copying
-    std::cout << "\n" << "Copying the array" << "\n" << std::endl;
-    string_2d_copy(first, second, 3);
+    std::cout << "Test 2 - array with negative numbers" << std::endl;
+    int array_2[] = {-10, -9, -8, -7, -6, -5, -4, -3, -2, -1};
+    std::cout << "\tExpected: -55" << std::endl;
+    std::cout << "\tReceived: " << array_sum(array_2, 10) << std::endl;
 
-    // Displaying
-    std::cout << "First array: " << std::endl;
-    for (int i = 0; i < 3; i++)
-    {
-        std::cout << "\t" << "'" << first[i][0] << "'" << ", " << "'" << first[i][1] << "'" << std::endl;
-    }
-    std::cout << "Second array: " << std::endl;
-    for (int i = 0; i < 3; i++)
-    {
-        std::cout << "\t" << "'" << second[i][0] << "'" << ", " << "'" << second[i][1] << "'" << std::endl;
-    }
+    std::cout << "Test 3 - array with positive and negative numbers" << std::endl;
+    int array_3[] = {-5, -4, -3, -2, -1, 0, 1, 2, 3, 4};
+    std::cout << "\tExpected: -5" << std::endl;
+    std::cout << "\tReceived: " << array_sum(array_3, 10) << std::endl;
 
+    std::cout << "Test 4 - negative size parameter" << std::endl;
+    int array_4[] = {17, 37};
+    std::cout << "\tExpected: 0" << std::endl;
+    std::cout << "\tReceived: " << array_sum(array_4, -17) << std::endl;
+
+    std::cout << "Test 5 - array of zeroes" << std::endl;
+    int array_5[] = {0, 0, 0, 0, 0};
+    std::cout << "\tExpected: 0" << std::endl;
+    std::cout << "\tReceived: " << array_sum(array_5, 5) << std::endl;
 
     return 0;
 }

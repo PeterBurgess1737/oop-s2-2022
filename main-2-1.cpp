@@ -1,64 +1,42 @@
 /*
-In your main function in main-2-1.cpp, define and initialise a single-dimensional integer array.
-Next, define a pointer that points to the first element in the array and pass the pointer to a function.
-
-Signature:
-    void multiples_of_seven(int *nums,int length);
-
-Using only pointer variables (and looping constructs), print only the array values that are exact multiples of 7 from start to finish to standard output.
-The only program output should be the numbers, one per line with no white space.
-
-Note:
-    Before accessing an array element, the pointer must be changed to point to the element.
-    You may not use the & operator or [] notation in your function.
-
-TEST-DRIVEN DEVELOPMENT:
-    You should develop input tests that will test that your code does the correct thing when it encounters multiples of 7 and that it doesn't do unexpected things.
-
-    This not assessed for this practical, but you should develop a test program that takes input from standard input and passes the results to the multiples_of_seven.
-    You should write a Makefile so that, if you type "make test", your code will be recompiled if required and then your tests will be attempted.
+Write a function that given an array of integers and its length, will find the minimum (smallest) number and return it.
+The function should return 0 if the size parameter, n, is less than 1.
 */
 
-// Libraries
+// Including standard headers
+#include <stdio.h>
+#include <stdlib.h>
 #include <iostream>
 
 // External functions
-extern void multiples_of_seven(int *nums,int length);
+extern int min_element(int[], int);
 
-// MAIN
 int main(void)
 {
-    // Test 1 - Incremental values
-    int my_nums_1[16] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-    int *my_nums_pointer_1 = my_nums_1;
-    std::cout << "\n----- Expected Result -----" << std::endl;
-    std::cout << "0\n7\n14" << std::endl;
-    std::cout << "----- Received Result -----" << std::endl;
-    multiples_of_seven(my_nums_pointer_1, 16);
-
-    // Test 2 - Only multiples of 7
-    int my_nums_2[5] = {7, 14, 21, 35, 91};
-    int *my_nums_pointer_2 = my_nums_2;
-    std::cout << "\n----- Expected Result -----" << std::endl;
-    std::cout << "7\n14\n21\n35\n91" << std::endl;
-    std::cout << "----- Received Result -----" << std::endl;
-    multiples_of_seven(my_nums_pointer_2, 5);
-
-    // Test 3 - Only negative multiples of 7
-    int my_nums_3[4] = {-7, -21, -91, -105};
-    int *my_nums_pointer_3 = my_nums_3;
-    std::cout << "\n----- Expected Result -----" << std::endl;
-    std::cout << "-7\n-21\n-91\n-105" << std::endl;
-    std::cout << "----- Received Result -----" << std::endl;
-    multiples_of_seven(my_nums_pointer_3, 4);
-
-    // Test 4 - Mix of all
-    int my_nums_4[7] = {-7, 9, 14, -35, 16, 21, 17};
-    int *my_nums_pointer_4 = my_nums_4;
-    std::cout << "\n----- Expected Result -----" << std::endl;
-    std::cout << "-7\n14\n-35\n21" << std::endl;
-    std::cout << "----- Received Result -----" << std::endl;
-    multiples_of_seven(my_nums_pointer_4, 7);
+    std::cout << "Test 1 - simple array" << std::endl;
+    int array_1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    std::cout << "Expected: 1" << std::endl;
+    std::cout << "Received: " << min_element(array_1, 10) << std::endl;
+    
+    std::cout << "Test 2 - negative numbers" << std::endl;
+    int array_2[] = {-1, -2, -3, -4, -5, -6, -7, -8, -9, -10};
+    std::cout << "Expected: -10" << std::endl;
+    std::cout << "Received: " << min_element(array_2, 10) << std::endl;
+    
+    std::cout << "Test 3 - positive and negative numbers" << std::endl;
+    int array_3[] = {1, -5, 3, -2, 5, -7, 7, -2, 9, 10};
+    std::cout << "Expected: -7" << std::endl;
+    std::cout << "Received: " << min_element(array_3, 10) << std::endl;
+    
+    std::cout << "Test 4 - negative size parameter" << std::endl;
+    int array_4[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    std::cout << "Expected: 0" << std::endl;
+    std::cout << "Received: " << min_element(array_4, -17) << std::endl;
+    
+    std::cout << "Test 5 - all zeros" << std::endl;
+    int array_5[] = {0, 0, 0, 0, 0};
+    std::cout << "Expected: 0" << std::endl;
+    std::cout << "Received: " << min_element(array_5, 5) << std::endl;
 
     return 0;
 }

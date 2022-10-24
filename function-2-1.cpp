@@ -1,12 +1,20 @@
-#include <iostream>
-
-void multiples_of_seven(int *nums,int length)
+int min_element(int array[], int n)
 {
-    for (int i = 0; i < length; i++)
+    // find the minimum number in an array and return it
+    // return 0 if the size parameter, n, is less than 1
+    if (n < 0)
     {
-        if (!(*(nums + i) % 7))
+        return 0;
+    }
+
+    int min = array[0];
+    for (int i = 1; i < n; i++)
+    {
+        if (array[i] < min)
         {
-            std::cout << *(nums + i) << std::endl;
+            min = array[i];
         }
     }
+
+    return min;
 }

@@ -1,7 +1,18 @@
-void copy_doubles(double *old_array, double *new_array, int length)
+int sum_two_arrays(int array[], int secondarray[], int n)
 {
-    for (int offset = 0; offset < length; offset++)
+    // return the sum of two arrays as an integer (of equal size)
+    // return 0 if the size parameter, n, is less than 1
+    if (n < 1)
     {
-        *(new_array + offset) = *(old_array + offset);
+        return 0;
     }
+
+    int sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        sum += array[i];
+        sum += secondarray[i];
+    }
+
+    return sum;
 }
