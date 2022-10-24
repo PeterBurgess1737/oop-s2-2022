@@ -7,6 +7,8 @@ using std::stack;
 class USBConnection
 {
 private:
+    static bool available_ids_initilised;
+
     int ID;
 
     USBConnection()
@@ -36,5 +38,7 @@ public:
         available_ids.push(ID);
     }
 };
+
+stack<int> USBConnection::available_ids({3, 2, 1});
 
 #endif // USBCONNECTION_H
