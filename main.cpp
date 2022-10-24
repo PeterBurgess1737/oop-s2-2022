@@ -30,7 +30,7 @@ int main(void)
     cout << "\n========== Program Start ==========\n" << endl;
 
     cout << "Creating a zoo named ZOOP with 10 cows and 3 lions" << endl;
-    zoo my_zoo("ZOOP", 10, 2);
+    zoo my_zoo("ZOOP", 10, 3);
     cout << endl;
 
     cout << "Printing zoo information: " << endl;
