@@ -9,3 +9,7 @@
 2-2:
 	g++ Car.cpp Ford.cpp main-2-2.cpp -o main -Wall
 	./main
+
+3-1:
+	g++ Car.cpp Tesla.cpp Ford.cpp Fleet.cpp main-3-1.cpp -o main -Wall
+	./main
