@@ -25,7 +25,6 @@ public:
     // attribute for every minute charged, but cannot exceed 100% charged
     void chargeBattery(int mins);
 
-    // Drive
     // Uses 74g of CO2 per kilometre
     // Uses 1% battery for every 5km driven
     // Cannot continue driving when the battery percentage is at 0 therefore
