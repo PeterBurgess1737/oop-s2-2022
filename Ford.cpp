@@ -28,7 +28,7 @@ void Ford::refuel(int litres)
 void Ford::drive(int kms)
 {
     // Find fuel usage
-    float fuel_usage = (float)kms / 5;
+    float fuel_usage = (float)kms / 5.f;
 
     // Clamping it to the amount of fuel in the tank
     if (fuel_usage > litresOfFuel)
