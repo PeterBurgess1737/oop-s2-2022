@@ -28,7 +28,7 @@ public:
     // Uses 74g of CO2 per kilometre
     // Uses 1% battery for every 5km driven
     // Cannot continue driving when the battery percentage is at 0 therefore
-    // Will not emit CO2 if the battery percentage is at 0
+    // will not emit CO2 if the battery percentage is at 0
     void drive(int kms);
 
     // Getters and Setters
