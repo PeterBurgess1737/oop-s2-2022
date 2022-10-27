@@ -25,11 +25,11 @@ void Car::set_vinNumber(int new_vinNumber)
     vinNumber = new_vinNumber;
 }
 
-int Car::get_emisions() const
+int Car::get_emissions() const
 {
     return emissions;
 }
-void Car::set_emisions(int new_emisions)
+void Car::set_emissions(int new_emisions)
 {
     emissions = new_emisions;
 }

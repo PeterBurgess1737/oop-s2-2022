@@ -29,7 +29,7 @@ public:
     int get_vinNumber() const;
     void set_vinNumber(int new_vinNumber);
 
-    int get_emisions() const;
+    int get_emissions() const;
     void set_emisions(int new_emisions);
 };
 
