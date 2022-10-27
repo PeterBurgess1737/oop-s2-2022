@@ -53,6 +53,9 @@ char Tesla::get_model() const
 void Tesla::set_batteryPercentage(float new_batteryPercentage)
 {
     batteryPercentage = new_batteryPercentage;
+
+    if (batteryPercentage > 100.f)
+        batteryPercentage = 100.f;
 }
 float Tesla::get_batteryPercentage() const
 {
