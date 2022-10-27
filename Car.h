@@ -23,13 +23,13 @@ public:
     virtual void drive(int kms) = 0;
 
     // Getters and Setters
-    int get_price();
+    int get_price() const;
     void set_price(int new_price);
 
-    int get_vinNumber();
+    int get_vinNumber() const;
     void set_vinNumber(int new_vinNumber);
 
-    int get_emmisions();
+    int get_emmisions() const;
 };
 
 #endif // PRAC_EXAM_4_CAR_H
