@@ -29,7 +29,8 @@ public:
     int get_vinNumber() const;
     void set_vinNumber(int new_vinNumber);
 
-    int get_emmisions() const;
+    int get_emisions() const;
+    void set_emisions(int new_emisions);
 };
 
 #endif // PRAC_EXAM_4_CAR_H
