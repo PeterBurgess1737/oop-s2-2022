@@ -9,15 +9,12 @@ void sort_by_animalID::sort(animal **animals, int n)
 {
     for (int i = 0; i < n - 1; i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < n - 1; j++)
         {
-            if (j != n - 1)
+            // If the next id is smaller than the current id then swap
+            if (animals[j]->get_animalID() > animals[j + 1]->get_animalID())
             {
-                // If the next id is smaller than the current id then swap
-                if (animals[j]->get_animalID() > animals[j + 1]->get_animalID())
-                {
-                    swap(animals[j], animals[j + 1]);
-                }
+                swap(animals[j], animals[j + 1]);
             }
         }
     }
