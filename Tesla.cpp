@@ -27,9 +27,6 @@ void Tesla::chargeBattery(int mins)
 
 void Tesla::drive(int kms)
 {
-    // Find number of kms possible to drive
-    // Then find emmisions
-
     // Finding battery usage
     float battery_usage = (float)kms / 5;
 
