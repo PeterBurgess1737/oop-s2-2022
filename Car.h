@@ -4,11 +4,10 @@
 class Car
 {
 protected:
-
     // Price of the car
     int price;
 
-    //
+    // 
     int vinNumber;
 
     // CO2 emissions
@@ -22,6 +21,15 @@ public:
     // In the derived classes, it will drive the car a certain amount of
     // kilometres and will update the emissions attribute.
     virtual void drive(int kms) = 0;
+
+    // Getters and Setters
+    int get_price();
+    void set_price(int new_price);
+
+    int get_vinNumber();
+    void set_vinNumber(int new_vinNumber);
+
+    int get_emmisions();
 };
 
 #endif // PRAC_EXAM_4_CAR_H
