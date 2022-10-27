@@ -34,8 +34,11 @@ void Tesla::drive(int kms)
     if (battery_usage > batteryPercentage)
         battery_usage = batteryPercentage;
 
-    // Find emisions
+    // Adjust emisions
     emissions += battery_usage * 74;
+
+    // Reduce battery
+    batteryPercentage -= battery_usage;
 }
 
 void Tesla::set_model(char new_model)
