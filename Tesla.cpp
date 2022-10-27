@@ -35,7 +35,7 @@ void Tesla::drive(int kms)
         battery_usage = batteryPercentage;
 
     // Adjust emisions
-    emissions += battery_usage * 74;
+    emissions += battery_usage * 5 * 74;
 
     // Reduce battery
     batteryPercentage -= battery_usage;
