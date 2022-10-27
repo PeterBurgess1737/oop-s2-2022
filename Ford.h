@@ -36,7 +36,7 @@ public:
     int get_badgeNumber();
 
     void set_litresOfFuel(int new_litresOfFuel);
-    int get_litresOfFuel();
+    float get_litresOfFuel();
 };
 
 #endif // PRAC_EXAM_4_FORD_H

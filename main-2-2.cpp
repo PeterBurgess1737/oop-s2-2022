@@ -17,6 +17,13 @@ int main(void)
     Ford my_ford_2(17, 1001);
     cout << endl;
 
+    cout << "Driving 151km" << endl;
+    my_ford_2.drive(151);
+    cout << "\t"
+         << "Current fuel: " << my_ford_2.get_litresOfFuel()
+         << endl;
+    cout << endl;
+
     cout << "\n=========== Program End ===========\n"
          << endl;
 
